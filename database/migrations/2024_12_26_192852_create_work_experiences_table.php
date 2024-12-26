@@ -13,6 +13,13 @@ return new class extends Migration
     {
         Schema::create('work_experiences', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('profile_id')->constrained()->onDelete('cascade');
+            $table->string('company');
+            $table->string('position');
+            $table->text('description');
+            $table->date('start_date');
+            $table->date('end_date')->nullable();
+            $table->boolean('is_current')->default(false);
             $table->timestamps();
         });
     }

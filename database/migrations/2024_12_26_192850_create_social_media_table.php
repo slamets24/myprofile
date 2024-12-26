@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('social_media', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('profile_id')->constrained()->onDelete('cascade');
+            $table->string('platform');
+            $table->string('url');
             $table->timestamps();
         });
     }

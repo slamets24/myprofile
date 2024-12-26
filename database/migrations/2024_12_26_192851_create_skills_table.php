@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('skills', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('profile_id')->constrained()->onDelete('cascade');
+            $table->string('name');
+            $table->integer('proficiency'); // 1-100
+            $table->string('category');
             $table->timestamps();
         });
     }
